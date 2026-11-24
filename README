@@ -1,3 +1,11 @@
 A Brainfuck interpreter in C.
 
 I thought it would be fun to make. :)
+
+You can create any script with this, and if you can't be bothered to make your own script, then here is one to use:
+
+>++++++++[<+++++++++>-]<.>++++[<+++++++>-]<+.+++++++..+++.>>++++++[<+++++++>-]<+
++.------------.>++++++[<+++++++++>-]<+.<.+++.------.--------.>>>++++[<++++++++>-
+]<+.
+
+(Source: https://therenegadecoder.com/code/hello-world-in-brainfuck/)

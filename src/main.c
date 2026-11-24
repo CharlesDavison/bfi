@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-    int *cells = calloc(CELLS_SIZE, sizeof(int));
+    int *cells = calloc(CELLS_SIZE, 1);
     int cellPointer = 0;
 
     if (argc < 2) {
@@ -22,7 +22,10 @@ int main(int argc, char *argv[])
 
     int counter = 0;
     char ch = inputFile[counter];
-    
+    int stack[CELLS_SIZE];
+    int stackPointer = -1;
+
+    // Main loop
     while (ch != '\0') {
         switch (ch) {
             case '<':
@@ -44,10 +47,37 @@ int main(int argc, char *argv[])
             case '.':
                 bf_output_cell(cellPointer, cells);
                 break;
-        }
-        counter++;
-        ch = inputFile[counter];
-    }
+
+            // Loops fuckery
+            case '[':
+                if (cells[cellPointer] == 0) {
+                    int depth = 1;
+
+                    while (depth > 0) {
+                        counter++;
+
+                        if (inputFile[counter] == '[') {
+                            depth++;
+                        } else if (inputFile[counter] == ']') {
+                            depth--;
+                        }
+                    }
+                } else {
+                    stack[++stackPointer] = counter;
+                }
+                break;
+
+            case ']':
+                if (cells[cellPointer] != 0) {
+                    counter = stack[stackPointer];
+                } else {
+                    stackPointer--;
+                }
+                break;
+                    }
+                    counter++;
+                    ch = inputFile[counter];
+                }
 
     free(cells);
     free(inputFile);

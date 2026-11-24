@@ -1,6 +1,7 @@
 #ifndef BF_H
 #define BF_H
 
+// The amount of cells to initialise. I got this value from: https://gist.github.com/roachhd/dce54bec8ba55fb17d3a
 #define CELLS_SIZE 30000
 
 void bf_increment_cell(int cellPointer, int *cells); // +

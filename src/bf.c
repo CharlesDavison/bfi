@@ -3,14 +3,17 @@
 
 #include "bf.h"
 
+// Function to increment the value in the current cell the pointer is pointing to.
 void bf_increment_cell(int cellPointer, int *cells) {
     cells[cellPointer] += 1;
 }
 
+// Function to decrement the value in the current cell the pointer is pointing to.
 void bf_decrement_cell(int cellPointer, int *cells) {
     cells[cellPointer] -= 1;
 }
 
+// Moves the pointer to the left.
 void bf_move_pointer_left(int *cellPointer) {
     *cellPointer -= 1;
     if (*cellPointer < 0) {
@@ -18,17 +21,19 @@ void bf_move_pointer_left(int *cellPointer) {
     }
 }
 
+// Moves the pointer to the right.
 void bf_move_pointer_right(int *cellPointer) {
     *cellPointer += 1;
     if (*cellPointer >= CELLS_SIZE) {
         *cellPointer = 0;
     }
 }
-
+// Outputs the current value of the cell the pointer is pointing to as an ascii character.
 void bf_output_cell(int cellPointer, int *cells) {
     putchar(cells[cellPointer]);
 }
 
+// Reads the file the user entered as a command line argument.
 char *bf_read_file(const char *fileName) {
     FILE *fp = fopen(fileName, "r");
 
