@@ -48,6 +48,10 @@ int main(int argc, char *argv[])
                 bf_output_cell(cellPointer, cells);
                 break;
 
+            case ',':
+                bf_get_cell(cellPointer, cells);
+                break;
+
             // Loops fuckery
             case '[':
                 if (cells[cellPointer] == 0) {

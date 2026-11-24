@@ -33,6 +33,11 @@ void bf_output_cell(int cellPointer, int *cells) {
     putchar(cells[cellPointer]);
 }
 
+void bf_get_cell(int cellPointer, int *cells) {
+    char usrInput = getchar();
+    cells[cellPointer] = (int)usrInput;
+}
+
 // Reads the file the user entered as a command line argument.
 char *bf_read_file(const char *fileName) {
     FILE *fp = fopen(fileName, "r");
